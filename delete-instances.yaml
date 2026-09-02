@@ -5,20 +5,34 @@
     - name: delete mongodb
       amazon.aws.ec2_instance:
         instance_ids:
-          - i-01eabb50bcd532415
+          - i-0ef14af78d3e81c22
         state: absent
         wait: true
 
     - name: delete redis
       amazon.aws.ec2_instance:
         instance_ids:
-          - i-0016ce3ddab3e4665
+          - i-0091dd695852dece5
         state: absent
         wait: true
 
     - name: delete mysql
       amazon.aws.ec2_instance:
         instance_ids:
-          - i-005f28a3db3e3c204
+          - i-0a7eed76eda6d7c40
+        state: absent
+        wait: true
+
+    - name: delete rabbitmq
+      amazon.aws.ec2_instance:
+        instance_ids:
+          - i-0044b1b3731221217
+        state: absent
+        wait: true
+
+    - name: delete catalogue
+      amazon.aws.ec2_instance:
+        instance_ids:
+          - i-0ae81e80eef0371f1
         state: absent
         wait: true
