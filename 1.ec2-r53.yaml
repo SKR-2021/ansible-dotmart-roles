@@ -9,9 +9,9 @@
     instances:
     - mongodb 
     - redis
-    # - mysql
-    # - rabbitmq
-    # - catalogue
+    - mysql
+    - rabbitmq
+    - catalogue
     # - user
     # - cart
     # - shipping
