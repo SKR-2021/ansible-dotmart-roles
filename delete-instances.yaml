@@ -1,0 +1,24 @@
+- name: delete ec2 instances
+  hosts: local
+  connection: local
+  tasks:
+    - name: delete mongodb
+      amazon.aws.ec2_instance:
+        instance_ids:
+          - i-01eabb50bcd532415
+        state: absent
+        wait: true
+
+    - name: delete redis
+      amazon.aws.ec2_instance:
+        instance_ids:
+          - i-0016ce3ddab3e4665
+        state: absent
+        wait: true
+
+    - name: delete mysql
+      amazon.aws.ec2_instance:
+        instance_ids:
+          - i-005f28a3db3e3c204
+        state: absent
+        wait: true
