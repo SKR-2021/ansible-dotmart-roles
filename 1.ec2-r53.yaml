@@ -13,7 +13,7 @@
     - rabbitmq
     - catalogue
     - user
-    # - cart
+    - cart
     # - shipping
     # - payment
     # - frontend
