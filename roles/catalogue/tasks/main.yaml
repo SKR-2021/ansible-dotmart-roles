@@ -8,3 +8,25 @@
     name: common
     tasks_from: nodejs.yaml
 
+- name: copy mongo repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongo client
+  ansible.builtin.package:
+    name: mongodb-mongosh
+    state: present
+
+- name: Check if catalogue database exists
+  ansible.builtin.command:
+    cmd: >
+      mongosh {{ MONGODB_HOST }} --quiet --eval
+      "db.getMongo().getDBNames().indexOf('catalogue')"
+  register: catalogue_output
+
+
+- name: Load products into mongodb
+  ansible.builtin.shell: |
+    mongosh --host {{ MONGODB_HOST }} </app/db/master-data.js
+  when: catalogue_output.stdout | int < 0
