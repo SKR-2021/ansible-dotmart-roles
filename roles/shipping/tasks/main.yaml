@@ -13,15 +13,15 @@
     name: common
     tasks_from: system-setup.yaml
 
-  - name: Import shipping data into mysql
-    community.mysql.mysql_db:
-      state: import
-      name: all
-      login_host: "{{ MYSQL_HOST }}" # The Shipping server is executing the SQL import, but the data is being stored in the remote MySQL server
-      login_user: "{{ MYSQL_ROOT_USER }}"
-      login_password: "{{ MYSQL_ROOT_PWD }}"
-      target: "{{ item }}"
-    loop:
-    - /app/db/schema.sql  # database/schema structure
-    - /app/db/app-user.sql # application database user/permissions
-    - /app/db/master-data.sql # initial Shipping application data
+- name: Import shipping data into mysql
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    login_host: "{{ MYSQL_HOST }}" # The Shipping server is executing the SQL import, but the data is being stored in the remote MySQL server
+    login_user: "{{ MYSQL_ROOT_USER }}"
+    login_password: "{{ MYSQL_ROOT_PWD }}"
+    target: "{{ item }}"
+  loop:
+  - /app/db/schema.sql  # database/schema structure
+  - /app/db/app-user.sql # application database user/permissions
+  - /app/db/master-data.sql # initial Shipping application data
