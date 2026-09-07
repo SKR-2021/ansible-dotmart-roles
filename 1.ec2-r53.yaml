@@ -6,8 +6,8 @@
     sg_id: "sg-056f6ae1ff0429ac9"
     zone_id: "Z09150472BEG29NERJFM7"
     domain_name: "dso86s.xyz"
-    instances:
-    - mongodb 
+    # instances:
+    # - mongodb 
     # - redis
     # - mysql
     # - rabbitmq
